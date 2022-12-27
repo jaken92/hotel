@@ -1,0 +1,12 @@
+.section-one {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
