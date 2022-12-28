@@ -28,11 +28,11 @@ require 'calendar.php';
         <div>
             <form method="post" action="makeBooking.php">
                 <label for="startdate">Enter the startdate of your stay</label>
-                <input type="text" name="startdate">
-                <!-- <input type="date" name="startdate" min="2023-01-01" max="2023-01-31"> -->
+                <!-- <input type="text" name="startdate"> -->
+                <input type="date" name="startdate" min="2023-01-01" max="2023-01-31">
                 <label for="enddate">Enter your checkout day</label>
-                <input type="text" name="enddate">
-                <!-- <input type="date" name="enddate" min="2023-01-01" max="2023-01-31"> -->
+                <!-- <input type="text" name="enddate"> -->
+                <input type="date" name="enddate" min="2023-01-01" max="2023-01-31">
                 <button>Book your stay</button>
 
             </form>

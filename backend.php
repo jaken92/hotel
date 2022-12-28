@@ -2,9 +2,9 @@
 
 $dbh = new PDO('sqlite:bookings.db');
 
-$statement = $dbh->query('SELECT * FROM bookings');
+$statement = $dbh->query('SELECT * FROM bookingsX');
 
-$bookings = $statement->fetchAll(PDO::FETCH_ASSOC);
+$bookingsX = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 // echo $bookings[0]['_date'];
 

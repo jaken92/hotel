@@ -39,10 +39,21 @@ $events = array();
 
 // );
 
-foreach ($bookings as $booking) {
+// foreach ($bookings as $booking) {
+//     $events[] = array(
+//         'start' => '2023-01-' . $booking['start_date'],
+//         'end' => '2023-01-' . $booking['end_date'],
+//         'summary' => 'test',
+//         'mask' => true,
+//         'classes' => ['booked']
+
+//     );
+// }
+
+foreach ($bookingsX as $bookingX) {
     $events[] = array(
-        'start' => '2023-01-' . $booking['start_date'],
-        'end' => '2023-01-' . $booking['end_date'],
+        'start' => $bookingX['start_date'],
+        'end' => $bookingX['end_date'],
         'summary' => 'test',
         'mask' => true,
         'classes' => ['booked']
