@@ -1,5 +1,6 @@
 <?php
 
+//prints the calendar with the booked dates marked. 
 declare(strict_types=1);
 
 require 'vendor/autoload.php';

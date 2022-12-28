@@ -17,7 +17,3 @@ $bookingsX = $statement->fetchAll(PDO::FETCH_ASSOC);
 // foreach ($bookings as $booking) {
 //     echo " NEW BOOKING: start: " . $booking['start_date'] . " end: " . $booking['end_date'];
 // }
-
-
-
-
