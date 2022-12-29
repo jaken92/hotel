@@ -28,7 +28,7 @@ foreach ($bookingsX as $bookingX) {
 
     );
 
-    //Seperate array used for avalability check. the date-period method isnt able to cover enddate in php 8.1 which is why i choose to work with this array instead of $events[] where i have already modified the enddate. 
+    //Seperate array used for avalability check. Method doesnt put the end_date into the array. 
     $period = new DatePeriod(
         new DateTime($bookingX['start_date']),
         new DateInterval('P1D'),
