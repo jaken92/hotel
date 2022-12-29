@@ -21,21 +21,22 @@ foreach ($period as $key => $value) {
     $bookingRequest[] = $value->format('Y-m-d');
 }
 
-//storing the already booked days in another array, bookedDays.
-$bookedDays = array();
-foreach ($events as $event) {
-    // echo $event['start'];
-    $period = new DatePeriod(
-        new DateTime($event['start']),
-        new DateInterval('P1D'),
-        new DateTime($event['end'])
-    );
-    foreach ($period as $key => $value) {
-        $bookedDays[] = $value->format('Y-m-d');
-    }
-}
-
-//comparing the arrays to check for similar values.
+// storing the already booked days in another array, bookedDays.
+// $bookedDays = array();
+// foreach ($events as $event) {
+//     // echo $event['start'];
+//     $period = new DatePeriod(
+//         new DateTime($event['start']),
+//         new DateInterval('P1D'),
+//         new DateTime($event['end'])
+//     );
+//     foreach ($period as $key => $value) {
+//         $bookedDays[] = $value->format('Y-m-d');
+//     }
+// }
+print_r($bookedDays);
+print_r($bookingRequest);
+//comparing the arrays to check for duplicate values.
 $result = array_intersect($bookedDays, $bookingRequest);
 
 //if no similar values, executes sql query for booking.
