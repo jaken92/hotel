@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 /* 
 Here's something to start your career as a hotel manager.
 
@@ -50,3 +51,21 @@ function isValidUuid(string $uuid): bool
     }
     return true;
 }
+$arr = ["bby", "monkey", "ass"];
+
+function calcCost(array $requestedDays, string $roomtype): int
+{
+    $amountOfDays = count($requestedDays);
+    if ($roomtype == "basic") {
+        $cost = $amountOfDays * 1;
+        return $cost;
+    } elseif ($roomtype == "regular") {
+        $cost = $amountOfDays * 2;
+        return $cost;
+    } else {
+        $cost = $amountOfDays * 3;
+        return $cost;
+    }
+}
+// $purr = calcCost($arr, "basic");
+// echo $purr;

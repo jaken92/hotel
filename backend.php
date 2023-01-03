@@ -1,10 +1,21 @@
 <?php
+require 'hotelFunctions.php';
 
-$dbh = new PDO('sqlite:bookings.db');
+// $dbh = new PDO('sqlite:bookings.db');
 
-$statement = $dbh->query('SELECT * FROM bookingsX');
+// $statement = $dbh->query('SELECT * FROM bookingsX WHERE room = "room"');
+
+// $bookingsX = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+$dick = connect('/bookings.db');
+$statement = $dick->query('SELECT * FROM bookingsX');
 
 $bookingsX = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// $statement = $db->prepare('SELECT * FROM table WHERE id = :id;');
+// $statement->bindValue(':id', $id);
+
 
 // echo $bookings[0]['_date'];
 

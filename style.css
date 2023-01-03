@@ -1,12 +1,56 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 300vh;
+  margin: 0px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: bisque;
+}
+
 .section-one {
   display: flex;
   flex-direction: row;
-  position: relative;
   width: 100%;
+  margin-top: 65px;
+  background-color: bisque;
+}
+.section-two {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 12px;
+  background-color: bisque;
+}
+
+.hero-container {
+  width: 100%;
+}
+
+.hero {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+  display: block;
+}
+.section-two {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.section-form {
+  display: flex;
+  justify-content: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 10rem;
 }

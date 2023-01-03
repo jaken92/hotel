@@ -1,14 +1,7 @@
-body {
-  display: flex;
-  justify-content: center;
-}
-
 .booked {
   background-color: red;
 }
 
 .calendar-container {
-
   width: 30rem;
-  height: 15rem;
 }
