@@ -39,31 +39,25 @@ function codeCheck(string $transfercode, int $amount): bool
     }
 };
 
-// if (property_exists($rez, 'error')) {
-//     //  echo $rez->error;
-//     print_r($rez);
-//     return false;
-// } else {
-//     return true;
-// }
+deposit("830117b5-7c51-4b4f-9904-b0291be6f730");
+
+function deposit($transfercode)
+{
+    $client = new Client;
+
+    $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/deposit', [
+        'form_params' => [
+            'user' => "Petter",
+            'transferCode' => $transfercode
+        ]
+    ]);
 
 
-// elseif (property_exists($rez, 'amount') && $rez->amount === 1) {
-//     print_r($rez);
-//     // echo "amount correct";
-//     return true;
-// }
-
-
-// if (empty($rez->error) && $rez->amount == 2) {
-//     // echo "no errors";
-//     // echo json_encode($yourBooking);
-//     // return true;
-// } else {
-//     // echo "we have an error: ";
-//     // echo $rez->error;
-//     // return false;
-// }
+    $rez = $response->getBody()->getContents();
+    // header("Content-type:application/json");
+    $rez = json_decode($rez);
+    echo json_encode($rez);
+}
 
 $yourBooking[] = array(
     'island' => 'Mamona',
@@ -72,5 +66,3 @@ $yourBooking[] = array(
     'checkout' => '2023-01-07',
 
 );
-
-// echo json_encode($yourBooking);

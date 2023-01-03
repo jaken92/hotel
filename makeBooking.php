@@ -77,6 +77,8 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
             $statement->bindParam(':room', $room, PDO::PARAM_STR);
 
             $statement->execute();
+
+            deposit($transfercode);
         } else {
             //if array contains matching values - print an error message. 
             echo "booking unsuccesful";
