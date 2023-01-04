@@ -1,16 +1,4 @@
-const list = document.querySelector('.features');
 const container = document.querySelector('.features-container');
-
-fetch('http://localhost:3000/features.php')
-  .then((response) => response.json())
-  .then((features) => {
-    features.forEach((feature) => {
-      let li = document.createElement('li');
-      li.innerHTML = feature.name + ' (' + feature.cost + ')';
-      list.appendChild(li);
-    });
-  });
-// document.getElementById('featureList').appendChild(list)
 
 fetch('http://localhost:3000/features.php')
   .then((response) => response.json())
