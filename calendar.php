@@ -4,7 +4,7 @@
 declare(strict_types=1);
 
 require 'vendor/autoload.php';
-require 'backend.php';
+require 'bookings.php';
 
 use benhall14\phpCalendar\Calendar as Calendar;
 

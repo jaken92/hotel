@@ -51,7 +51,6 @@ function isValidUuid(string $uuid): bool
     }
     return true;
 }
-$arr = ["bby", "monkey", "ass"];
 
 function calcCost(array $requestedDays, string $roomtype): int
 {

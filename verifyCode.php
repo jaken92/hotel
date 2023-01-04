@@ -7,7 +7,7 @@ header("Content-type:application/json");
 
 use GuzzleHttp\Client;
 
-// codeCheck("44e34c89-ea91-402b-9fdd-ec2d9c4590a3", 2);
+// codeCheck("05e8b347-987f-45a3-9c05-2fc2ad706608", 1);
 
 function codeCheck(string $transfercode, int $amount): bool
 {
@@ -25,21 +25,19 @@ function codeCheck(string $transfercode, int $amount): bool
     // header("Content-type:application/json");
     $rez = json_decode($rez);
     // echo $rez->error;
-    // print_r($rez);
+    print_r($rez);
+    // echo json_encode($rez);
     if (property_exists($rez, 'transferCode') && property_exists($rez, 'amount') && property_exists($rez, 'fromAccount')) {
-        if ($rez->amount === $amount) {
-            return true;
-        } else {
-            echo "The value of your transfercode doesnt match the totalcost. ";
-            return false;
-        }
+
+        return true;
+    } elseif (property_exists($rez, 'error')) {
+        return false;
     } else {
-        echo json_encode($rez);
         return false;
     }
 };
 
-deposit("830117b5-7c51-4b4f-9904-b0291be6f730");
+deposit("05e8b347-987f-45a3-9c05-2fc2ad706608");
 
 function deposit($transfercode)
 {
@@ -55,8 +53,8 @@ function deposit($transfercode)
 
     $rez = $response->getBody()->getContents();
     // header("Content-type:application/json");
-    $rez = json_decode($rez);
-    echo json_encode($rez);
+    // $rez = json_decode($rez);
+    // echo json_encode($rez);
 }
 
 $yourBooking[] = array(

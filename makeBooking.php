@@ -8,11 +8,15 @@ require "verifyCode.php";
 
 if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST['room'])) {
     //storing user input.
-    $startdate = $_POST['startdate'];
-    $enddate = $_POST['enddate'];
-    $transfercode = $_POST['transfercode'];
-    $room = $_POST['room'];
+    $startdate = htmlspecialchars($_POST['startdate']);
+    $enddate = htmlspecialchars($_POST['enddate']);
+    $transfercode = htmlspecialchars($_POST['transfercode']);
+    $room = htmlspecialchars($_POST['room']);
 
+    echo "startdate: " . $startdate;
+    echo " enddate: " . $enddate;
+    echo " code: " . $transfercode;
+    echo " room: " . $room;
     $bookingRequest = array();
     $bookedDays = array();
 
@@ -27,20 +31,10 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
         $bookingRequest[] = $value->format('Y-m-d');
     }
 
-    $Uuidvalidation = isValidUuid($transfercode);
-    //need to make calculations for totalcost and pass it to codeCheck.
-
-    // echo "Uuidvalidation: " . $Uuidvalidation ? 'true' : 'false';
     $totalcost = calcCost($bookingRequest, $room);
-    echo $totalcost;
-
-    //call function with treansfercode and totalcost at values. 
-    $transfercodeValidation = codeCheck($transfercode, 1);
 
 
-    // echo "transfercode validation : " . $transfercodeValidation ? 'true' : 'false';
-
-    if ($Uuidvalidation === true && $transfercodeValidation === true) {
+    if (isValidUuid($transfercode) && codeCheck($transfercode, $totalcost)) {
         //execute the rest of the code here? (maybe bot the booking check, but putting things in the db.)
         //covering the dates between the requested booking, minus the checkoutday. https://stackoverflow.com/questions/4312439/php-return-all-dates-between-two-dates-in-an-array
 

@@ -14,7 +14,7 @@ require 'calendar.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="calendar.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styling.css">
     <link rel="stylesheet" href="header.css">
     <title>Document</title>
 </head>
@@ -63,7 +63,7 @@ require 'calendar.php';
     <div class="section-two">
         <div class="calendar-container">
             <div class="calendar">
-                <?= $calendarLux->display(date('2023-01-01')); ?>
+                <?= $calendarLux->display(date('2023-01-01'), 'green'); ?>
             </div>
         </div>
     </div>
@@ -83,11 +83,18 @@ require 'calendar.php';
             </select>
             <label for="transfercode">Enter your transfercode below</label>
             <input type="text" name="transfercode" placeholder="Paste transfercode here">
+            <div class="features-container">
+
+            </div>
             <button>Book your stay</button>
 
         </form>
     </div>
+    <ul class="features">
+
+    </ul>
     <script src="script.js"></script>
+    <script src="fetch.js"></script>
 </body>
 
 </html>
