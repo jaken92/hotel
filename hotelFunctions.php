@@ -52,7 +52,7 @@ function isValidUuid(string $uuid): bool
     return true;
 }
 
-function calcCost(array $requestedDays, string $roomtype): int
+function roomTotalCost(array $requestedDays, string $roomtype): int
 {
     $amountOfDays = count($requestedDays);
     if ($roomtype == "basic") {
@@ -66,5 +66,23 @@ function calcCost(array $requestedDays, string $roomtype): int
         return $cost;
     }
 }
-// $purr = calcCost($arr, "basic");
-// echo $purr;
+
+
+//function fetching feature data from db and checking if they are set. Adding the cost to fearutecost if set. 
+function featuresTotalCost(): int
+{
+
+    $dick = connect('/bookings.db');
+    $statement = $dick->query('SELECT * FROM features');
+
+    $features = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    $featurecost = 0;
+
+    foreach ($features as $feature) {
+        if (isset($_POST[$feature['id']])) {
+            $featurecost = $featurecost + $feature['cost'];
+        }
+    }
+    return $featurecost;
+}

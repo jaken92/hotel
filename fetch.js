@@ -7,7 +7,7 @@ fetch('http://localhost:3000/features.php')
       const input = document.createElement('input');
       input.type = 'checkbox';
       input.name = feature.id;
-      input.value = feature.cost;
+      input.value = 1;
       const label = document.createElement('label');
       label.innerHTML = feature.name + ' (' + feature.cost + ')';
       label.htmlFor = feature.id;
