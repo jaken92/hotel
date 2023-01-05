@@ -80,7 +80,7 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
         //if no similar values, executes sql query for booking.
         if (empty($result)) {
             echo "booking succesful";
-            $statement = $dick->prepare("INSERT INTO bookingsX('start_date', 'end_date', 'room') VALUES (:start_date, :end_date 
+            $statement = $dick->prepare("INSERT INTO bookingsX('start_date', 'end_date', 'room', ) VALUES (:start_date, :end_date 
         ,:room)");
 
             $statement->bindParam(':start_date', $startdate, PDO::PARAM_STR);
@@ -102,9 +102,3 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
         echo "Booking didnt go through. ";
     }
 }
-
-
-
-
-
-
