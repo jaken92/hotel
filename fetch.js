@@ -18,14 +18,19 @@ fetch('http://localhost:3000/features.php')
     });
   });
 
-// checkbox.type = 'checkbox';
-// checkbox.name = 'name';
-// checkbox.value = 'value';
-// checkbox.id = 'id';
+const standards = [];
+const roomnames = [];
+const roomcosts = [];
 
-// // creating label for checkbox
-// var label = document.createElement('label');
-
-// // assigning attributes for
-// // the created label tag
-// label.htmlFor = 'id';
+fetch('http://localhost:3000/rooms.php')
+  .then((response) => response.json())
+  .then((rooms) => {
+    rooms.forEach((room) => {
+      standards.push(room.id);
+      roomnames.push(room.name);
+      roomcosts.push(room.cost);
+    });
+  });
+console.log(standards);
+console.log(roomnames);
+console.log(roomcosts);
