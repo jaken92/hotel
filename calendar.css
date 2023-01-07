@@ -3,5 +3,10 @@
 }
 
 .calendar-container {
-  width: 30rem;
+  width: 45%;
+}
+
+.calendar {
+  width: 100%;
+  border-radius: 10px;
 }
