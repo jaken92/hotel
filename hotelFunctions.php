@@ -52,19 +52,43 @@ function isValidUuid(string $uuid): bool
     return true;
 }
 
+// $blast = ["bird", "aunt", "moose"];
+
+
+// $hej = roomTotalCost($blast, "regular");
+// echo $hej;
+
 function roomTotalCost(array $requestedDays, string $roomtype): int
 {
+    $dick = connect('/bookings.db');
+    $statement = $dick->query('SELECT * FROM rooms');
+
+    $rooms = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    $cost = 0;
+
     $amountOfDays = count($requestedDays);
-    if ($roomtype == "basic") {
-        $cost = $amountOfDays * 1;
-        return $cost;
-    } elseif ($roomtype == "regular") {
-        $cost = $amountOfDays * 2;
-        return $cost;
-    } else {
-        $cost = $amountOfDays * 3;
-        return $cost;
+
+    foreach ($rooms as $room) {
+        if ($roomtype == $room['id']) {
+            $cost = $amountOfDays * $room['cost'];
+            // echo $room['id'];
+            return $cost;
+        }
     }
+
+
+    // $amountOfDays = count($requestedDays);
+    // if ($roomtype == "basic") {
+    //     $cost = $amountOfDays * 1;
+    //     return $cost;
+    // } elseif ($roomtype == "regular") {
+    //     $cost = $amountOfDays * 2;
+    //     return $cost;
+    // } else {
+    //     $cost = $amountOfDays * 3;
+    //     return $cost;
+    // }
 }
 
 

@@ -47,8 +47,8 @@ require 'calendar.php';
         </div>
     </div>
     <div class="sections">
-        <h2>Basic</h2>
-        <h3>Beachview</h3>
+        <h2 class="basic-id">Basic</h2>
+        <h3 class="basic-name">Beachview</h3>
         <div class="basic-content">
             <div class="calendar-container">
                 <div class="calendar">
@@ -65,8 +65,8 @@ require 'calendar.php';
         </p>
     </div>
     <div class="sections">
-        <h2>Basic</h2>
-        <h3>Beachview</h3>
+        <h2 class="regular-id">Basic</h2>
+        <h3 class="regular-name">Beachview</h3>
         <div class="regular-content">
             <div class="calendar-container">
                 <div class="calendar">
@@ -82,8 +82,8 @@ require 'calendar.php';
         <p>Enjoy this gem of an island fully by sleeping under the blue sky on the beach. Your stay includes a very cosy blanket the we wash occasionaly. If you select this option we warmly reccomend you to preorder the feature "baseball-bat" to fend off the raccoons that occasionaly terrorize our guests during nighttime. </p>
     </div>
     <div class="sections">
-        <h2>Basic</h2>
-        <h3>Beachview</h3>
+        <h2 class="lux-id">Basic</h2>
+        <h3 class="lux-name">Beachview</h3>
         <div class="luxury-content">
             <div class="calendar-container">
                 <div class="calendar">
@@ -99,10 +99,10 @@ require 'calendar.php';
         <p>Enjoy this gem of an island fully by sleeping under the blue sky on the beach. Your stay includes a very cosy blanket the we wash occasionaly. If you select this option we warmly reccomend you to preorder the feature "baseball-bat" to fend off the raccoons that occasionaly terrorize our guests during nighttime. </p>
     </div>
     <div class="section-form">
-        <h2>Book your stay</h2>
         <div class="booking-content">
-            <div>
+            <div class="form-container">
                 <form method="post" action="makeBooking.php">
+                    <h2>Book your stay</h2>
                     <label for="startdate">Enter the startdate of your stay</label>
                     <!-- <input type="text" name="startdate"> -->
                     <input type="date" name="startdate" min="2023-01-01" max="2023-01-31">
@@ -111,9 +111,6 @@ require 'calendar.php';
                     <input type="date" name="enddate" min="2023-01-01" max="2023-01-31">
                     <label for="room">Choose room type</label>
                     <select name="room" id="">
-                        <option value="basic">Basic</option>
-                        <option value="regular">Regular</option>
-                        <option value="luxury">Luxury</option>
                     </select>
                     <label for="transfercode">Enter your transfercode below</label>
                     <input type="text" name="transfercode" placeholder="Paste transfercode here">

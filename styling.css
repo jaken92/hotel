@@ -43,6 +43,7 @@ img {
   padding: 12px;
   background-color: bisque;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .sections h2,
 h3 {
@@ -98,19 +99,25 @@ h3 {
 .section-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-radius: 20px;
-  border: 2px solid black;
   width: 90%;
   align-self: center;
+  padding-bottom: 2rem;
+}
+form h2 {
 }
 .booking-content {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+.form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 .bar-container {
   width: 50%;
-  padding: 12px;
 }
 .bar-img {
   width: 100%;
