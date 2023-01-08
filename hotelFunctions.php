@@ -60,8 +60,8 @@ function isValidUuid(string $uuid): bool
 
 function roomTotalCost(array $requestedDays, string $roomtype): int
 {
-    $dick = connect('/bookings.db');
-    $statement = $dick->query('SELECT * FROM rooms');
+    $dbh = connect('/bookings.db');
+    $statement = $dbh->query('SELECT * FROM rooms');
 
     $rooms = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -96,8 +96,8 @@ function roomTotalCost(array $requestedDays, string $roomtype): int
 function featuresTotalCost(): int
 {
 
-    $dick = connect('/bookings.db');
-    $statement = $dick->query('SELECT * FROM features');
+    $dbh = connect('/bookings.db');
+    $statement = $dbh->query('SELECT * FROM features');
 
     $features = $statement->fetchAll(PDO::FETCH_ASSOC);
 

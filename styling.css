@@ -11,7 +11,12 @@ body {
   box-sizing: border-box;
   position: relative;
   background-color: bisque;
+  font-family: 'Inter';
 }
+h2{
+  font-size: 40px;
+}
+
 img {
   display: block;
   object-fit: cover;
@@ -28,6 +33,17 @@ img {
 
 .hero-container {
   width: 100%;
+  position: relative;
+}
+.headline-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(197, 196, 150, 0.0);
+  padding: 1rem;
+  color: white;
+  font-size: 64px;
+  font
 }
 
 .hero {
@@ -35,6 +51,7 @@ img {
   object-fit: cover;
   height: 400px;
   display: block;
+  border-radius: 0px;
 }
 .sections {
   display: flex;
@@ -54,7 +71,8 @@ h3 {
   display: flex;
   justify-content: center;
   width: 90%;
-  text-align: center;
+  text-align: left;
+  margin-top: 0.5rem;
 }
 .basic-content {
   display: flex;
@@ -116,6 +134,9 @@ form h2 {
   display: flex;
   justify-content: center;
 }
+form h3 {
+  justify-content: start;
+}
 .bar-container {
   width: 50%;
 }
@@ -127,7 +148,7 @@ form h2 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: 10rem;
 }
 

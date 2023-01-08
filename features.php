@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require "hotelFunctions.php";
 
-$dick = connect('/bookings.db');
+$dbh = connect('/bookings.db');
 
-$statement = $dick->query('SELECT * FROM features');
+$statement = $dbh->query('SELECT * FROM features');
 
 $features = $statement->fetchAll(PDO::FETCH_ASSOC);
 

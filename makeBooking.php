@@ -53,7 +53,7 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
     if (isValidUuid($transfercode) && codeCheck($transfercode, $totalcost)) {
 
         //fetching the booked days with the the roomtype parameter and putting them into an array. 
-        $stmt = $dick->prepare('SELECT * FROM bookingsX where room = :room');
+        $stmt = $dbh->prepare('SELECT * FROM bookingsX where room = :room');
         $stmt->bindValue(':room', $room);
         $stmt->execute();
         $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
         //if no similar values, executes sql query for booking.
         if (empty($result)) {
             echo "booking succesful";
-            $statement = $dick->prepare("INSERT INTO bookingsX('start_date', 'end_date', 'room', ) VALUES (:start_date, :end_date 
+            $statement = $dbh->prepare("INSERT INTO bookingsX('start_date', 'end_date', 'room', ) VALUES (:start_date, :end_date 
         ,:room)");
 
             $statement->bindParam(':start_date', $startdate, PDO::PARAM_STR);

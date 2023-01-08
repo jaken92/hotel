@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.logo {
+  height: 3rem;
+  width: 3rem;
+}
+
 header {
   background-color: bisque;
   position: fixed;
