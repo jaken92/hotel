@@ -25,7 +25,7 @@ function codeCheck(string $transfercode, int $amount): bool
     // header("Content-type:application/json");
     $rez = json_decode($rez);
     // echo $rez->error;
-    print_r($rez);
+    // print_r($rez);
     // echo json_encode($rez);
     if (property_exists($rez, 'transferCode') && property_exists($rez, 'amount') && property_exists($rez, 'fromAccount')) {
 
@@ -57,10 +57,15 @@ function deposit($transfercode)
     // echo json_encode($rez);
 }
 
-$yourBooking[] = array(
-    'island' => 'Mamona',
-    'hotel' => 'Horale Hotel',
-    'checkin' => '2023-01-02',
-    'checkout' => '2023-01-07',
+// $yourBooking[] = array(
+//     'island' => 'Mamona',
+//     'hotel' => 'Horale Hotel',
+//     'arrival_date' => '2023-01-02',
+//     'departure_date' => '2023-01-07',
+//     'total_cost' => '',
+//     'stars' => '',
+//     'features' => '',
+//     'additional_info' => ''
 
-);
+
+// );

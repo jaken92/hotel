@@ -95,6 +95,15 @@ function roomTotalCost(array $requestedDays, string $roomtype): int
 //function fetching feature data from db and checking if they are set. Adding the cost to fearutecost if set. 
 function featuresTotalCost(): int
 {
+    // $yourBooking[] = array(
+    //     'island' => 'Mamona',
+    //     'hotel' => 'Horale Hotel',
+    //     'arrival_date' => '2023-01-02',
+    //     'departure_date' => '2023-01-07',
+    //     'total_cost' => '',
+    //     'stars' => '',
+    //     'additional_info' => ''
+    // );
 
     $dbh = connect('/bookings.db');
     $statement = $dbh->query('SELECT * FROM features');
@@ -106,7 +115,55 @@ function featuresTotalCost(): int
     foreach ($features as $feature) {
         if (isset($_POST[$feature['id']])) {
             $featurecost = $featurecost + $feature['cost'];
+
+
+            // $choosenFeatures[] = ["name" => $feature['name'], "cost" => $feature['cost']];
         }
     }
+    // $yourBooking[0] += ["features" => $choosenFeatures];
+    // print_r($choosenFeatures);
+    // print_r($yourBooking);
+    // header("Content-type:application/json");
+    // echo json_encode($yourBooking);
     return $featurecost;
+}
+
+function getFeatures()
+{
+    $dbh = connect('/bookings.db');
+    $statement = $dbh->query('SELECT * FROM features');
+
+    $features = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $features;
+}
+
+
+function insertFeatures($choosenFeatures): array
+{
+    // $yourBooking[] = array(
+    //     'island' => 'Mamona',
+    //     'hotel' => 'Horale Hotel',
+    //     'arrival_date' => '2023-01-02',
+    //     'departure_date' => '2023-01-07',
+    //     'total_cost' => '',
+    //     'stars' => '',
+    //     'additional_info' => ''
+    // );
+
+    $features = getFeatures();
+
+    foreach ($features as $feature) {
+        if (isset($_POST[$feature['id']])) {
+
+
+            $choosenFeatures[] = ["name" => $feature['name'], "cost" => $feature['cost']];
+        }
+    }
+
+    // $yourBooking[0] += ["features" => $choosenFeatures];
+
+    header("Content-type:application/json");
+
+    // return $yourBooking;
+    return $choosenFeatures;
 }

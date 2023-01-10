@@ -23,7 +23,7 @@ li {
 }
 
 a {
-  color: white;
+  color: rgb(3, 3, 3);
   text-decoration: none;
 }
 
@@ -44,7 +44,7 @@ a {
 
 .nav-branding {
   font-size: 2rem;
-  color: white;
+  color: rgb(8, 8, 8);
 }
 
 .nav-link {
@@ -67,7 +67,7 @@ a {
   margin: 5px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background-color: white;
+  background-color: black;
 }
 
 @media (max-width: 768px) {

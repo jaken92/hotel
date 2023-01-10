@@ -3,6 +3,7 @@
 declare(strict_types=1);
 require "calendar.php";
 require "verifyCode.php";
+// require "arrays.php";
 
 
 
@@ -13,19 +14,22 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
     $transfercode = htmlspecialchars($_POST['transfercode']);
     $room = htmlspecialchars($_POST['room']);
 
+    $choosenFeatures = array();
+    $choosenFeatures = insertFeatures($choosenFeatures);
+
     //setting the features value to 0. 
-    $feature_1 = 0;
-    $feature_2 = 0;
-    $feature_3 = 0;
+    $feature_one = 0;
+    $feature_two = 0;
+    $feature_three = 0;
     //If a feature is choosen the value is changed to 1, which is what the respective post input contains.
-    if (isset($_POST['feature_1'])) {
-        $feature_1 = $_POST['feature_1'];
+    if (isset($_POST['feature_one'])) {
+        $feature_one = $_POST['feature_one'];
     }
-    if (isset($_POST['feature_2'])) {
-        $feature_2 = $_POST['feature_2'];
+    if (isset($_POST['feature_two'])) {
+        $feature_two = $_POST['feature_two'];
     }
-    if (isset($_POST['feature_3'])) {
-        $feature_3 = $_POST['feature_3'];
+    if (isset($_POST['feature_three'])) {
+        $feature_three = $_POST['feature_three'];
     }
 
     //declaring array which we are going to fill with the requested days.  
@@ -52,13 +56,13 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
     //veryfing transfercode. If valid continues with the booking process. Functions found in hotelsFunction.php and in verifyCode.php.
     if (isValidUuid($transfercode) && codeCheck($transfercode, $totalcost)) {
 
-        //fetching the booked days with the the roomtype parameter and putting them into an array. 
-        $stmt = $dbh->prepare('SELECT * FROM bookingsX where room = :room');
+        //fetching the booked days with the the roomtype parameter. 
+        $stmt = $dbh->prepare('SELECT * FROM bookings where room = :room');
         $stmt->bindValue(':room', $room);
         $stmt->execute();
         $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        //declaring array for storing booked dates.
+        //declaring array for storing the booked dates.
         $bookedDays = array();
 
         //each booking where the room = $room is added to a dateperiod with startdate and enddate as it appears in the db. 
@@ -79,19 +83,35 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
 
         //if no similar values, executes sql query for booking.
         if (empty($result)) {
-            echo "booking succesful";
-            $statement = $dbh->prepare("INSERT INTO bookingsX('start_date', 'end_date', 'room', ) VALUES (:start_date, :end_date 
-        ,:room)");
+            // echo "booking succesful";
+            $statement = $dbh->prepare("INSERT INTO bookings ('start_date', 'end_date', 'room', 'feature_one', 'feature_two', 'feature_three') VALUES (:start_date, :end_date, :room, :feature_one, :feature_two, :feature_three)");
 
             $statement->bindParam(':start_date', $startdate, PDO::PARAM_STR);
             $statement->bindParam(':end_date', $enddate, PDO::PARAM_STR);
             $statement->bindParam(':room', $room, PDO::PARAM_STR);
+            $statement->bindParam(':feature_one', $feature_one, PDO::PARAM_INT);
+            $statement->bindParam(':feature_two', $feature_two, PDO::PARAM_INT);
+            $statement->bindParam(':feature_three', $feature_three, PDO::PARAM_INT);
 
             $statement->execute();
 
+            $yourBooking = [
+                'island' => 'Mamona',
+                'hotel' => 'Horale Hotel',
+                'arrival_date' => $startdate,
+                'departure_date' => $enddate,
+                'total_cost' => $totalcost,
+                'stars' => '3',
+                'features' => $choosenFeatures,
+                'additional_info' => 'Thank you for staying at this very avarage hotel.'
+            ];
+
+
             deposit($transfercode);
+
+
+            echo json_encode($yourBooking);
         } else {
-            //if array contains matching values - print an error message. 
             echo "booking unsuccesful";
             foreach ($result as $occupied) {
                 echo $occupied . "is already booked, choose another date please! ";

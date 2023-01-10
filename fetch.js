@@ -1,5 +1,7 @@
 const container = document.querySelector('.features-container');
 
+//fetching features and printing them out in the booking form.
+//https://petterjakobsson.se/features.php
 fetch('http://localhost:3000/features.php')
   .then((response) => response.json())
   .then((features) => {
@@ -9,7 +11,6 @@ fetch('http://localhost:3000/features.php')
       input.name = feature.id;
       input.value = 1;
       const label = document.createElement('label');
-      // label.innerHTML = feature.name + ' ($' + feature.cost + ')';
       label.innerHTML = `${feature.name} $${feature.cost}`;
       label.htmlFor = feature.id;
       const checkboxContainer = document.createElement('div');
@@ -19,9 +20,7 @@ fetch('http://localhost:3000/features.php')
     });
   });
 
-// let standards = [];
-// const roomnames = [];
-// const roomcosts = [];
+//selecting html elements where i want to print db data from "rooms"-table.
 
 const basicId = document.querySelector('.basic-id');
 const basicName = document.querySelector('.basic-name');
@@ -32,22 +31,10 @@ const regularName = document.querySelector('.regular-name');
 const luxId = document.querySelector('.lux-id');
 const luxName = document.querySelector('.lux-name');
 
-// fetch('http://localhost:3000/rooms.php')
-//   .then((response) => response.json())
-//   .then((rooms) => {
-//     rooms.forEach((room) => {
-//       standards.push(String(room.id));
-//       roomnames.push(room.name);
-//       roomcosts.push(room.cost);
-//     });
-//   });
-// console.log(standards);
-// console.log(roomnames);
-// console.log(roomcosts);
-// basicId.innerHTML = standards[0];
-// console.log(array.length(standards));
 const select = document.querySelector('select');
 
+//https://petterjakobsson.se/features.php
+//fetching rooms and printing out info about them in the html. Making the rooms appeaer in the booking from as a list where u can select from them.
 fetch('http://localhost:3000/rooms.php')
   .then((response) => response.json())
   .then((rooms) => {
