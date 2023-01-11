@@ -3,7 +3,7 @@ const container = document.querySelector('.features-container');
 //fetching features and printing them out in the booking form.
 //http://localhost:3000/features.php
 //https://petterjakobsson.se/features.php
-fetch('http://localhost:3000/features.php')
+fetch('https://petterjakobsson.se/features.php')
   .then((response) => response.json())
   .then((features) => {
     features.forEach((feature) => {
@@ -40,7 +40,7 @@ const select = document.querySelector('select');
 //http://localhost:3000/rooms.php
 //https://petterjakobsson.se/rooms.php
 //fetching "rooms" data and printing out info about them in the html.
-fetch('http://localhost:3000/rooms.php')
+fetch('https://petterjakobsson.se/rooms.php')
   .then((response) => response.json())
   .then((rooms) => {
     //Setting the heading innerHTML for each section.

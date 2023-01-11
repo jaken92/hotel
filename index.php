@@ -13,13 +13,13 @@ require 'calendar.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/CSS/calendar.css">
-    <link rel="stylesheet" href="/CSS/styling.css">
+    <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <title>The Very Avarage Island Inn</title>
+    <title>The Very Average Island Inn</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@ require 'calendar.php';
         <div class="hero-container">
             <img class="hero" src="images/banner.png" alt="">
             <div class="headline-container">
-                <h1>The Very Avarage Island Inn</h1>
+                <h1>The Very Average Island Inn</h1>
                 <div class="offer">
                     <h4>Special Offer</h4>
                     <p>Book four or more nights and get a 1$ discount!</p>
@@ -76,7 +76,7 @@ require 'calendar.php';
                 </div>
             </div>
         </div>
-        <p>Enjoy this gem of an island fully by sleeping under the blue sky on the beach. Your stay includes a very cosy blanket that we wash occasionaly, aswell as an almost waterproof parasol. If you select this option we warmly reccomend you to preorder the feature "baseball-bat" as you might need to fend off the aggressive raccoons that terrorize our guests during nighttime.
+        <p>Enjoy this gem of an island fully by sleeping under the blue sky on the beach. Your stay includes a very cosy blanket that we wash occasionaly, aswell as an almost waterproof parasol. If you select this option we warmly recommend you to preorder the feature "baseball-bat" as you might need to fend off the aggressive raccoons that terrorize our guests during nighttime.
         </p>
     </div>
     <div id="regular" class="sections">

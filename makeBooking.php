@@ -100,13 +100,13 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
 
             $yourBooking = [
                 'island' => 'Dirt Cheap Island',
-                'hotel' => 'The Very Avarage Island Inn',
+                'hotel' => 'The Very Average Island Inn',
                 'arrival_date' => $startdate,
                 'departure_date' => $enddate,
                 'total_cost' => $totalcost,
                 'stars' => '3',
                 'features' => $choosenFeatures,
-                'additional_info' => 'Thank you for staying at this very avarage hotel.'
+                'additional_info' => 'Thank you for staying at this very average hotel.'
             ];
 
             // deposits payment to my account. function found in verifyCode.php
@@ -119,11 +119,11 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
             // foreach ($result as $occupied) {
             //     echo $occupied . "is already booked, choose another date please! ";
             // }
-            header("Location: http://localhost:3000/unsuccesful.html");
+            header("Location: https://petterjakobsson.se/unsuccesful.html");
         }
     } else {
 
 
-        header("Location: http://localhost:3000/unsuccesful.html");
+        header("Location: https://petterjakobsson.se/unsuccesful.html");
     }
 }
