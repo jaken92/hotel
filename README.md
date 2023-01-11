@@ -1,16 +1,18 @@
-WHY NOT A GIF HERE? TO SET THE MODE.
+# Dirt Cheap Island
 
-# Island name
+Dirt Cheap Island is dirt cheap. Come visit!
 
-Some text about your lovely island
+# The Very Avarage Island Inn
 
-# Hotel name
-
-Why not add some info about the hotel of your dreams?
+Neat little hotel with very avarage facilities! I recommend for you my friend.
 
 # Instructions
 
-If your project requires some installation or similar, please inform your user 'bout it. For instance, if you want a more decent indentation of your .php files, you could edit [.editorconfig]('/.editorconfig').
+Start a php server with localhost from the map where the files are located. Change the links in the fetch-statements in the fetch.js file to be valid for the localhost you are running. Example https://petterjakobsson.se/features.php can be changed to http://localhost:3000/features.php.
+
+Now fire up your webapp and browse in on http://localhost:YourPort/index.php to book your stay at this avarage hotel!
+
+Or just find the application online at https://petterjakobsson.se.
 
 # Code review
 

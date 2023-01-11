@@ -53,7 +53,11 @@ require 'calendar.php';
         <div class="hero-container">
             <img class="hero" src="images/banner.png" alt="">
             <div class="headline-container">
-                <h1>The very avarage island inn</h1>
+                <h1>The Very Avarage Island Inn</h1>
+                <div class="offer">
+                    <h4>Special Offer</h4>
+                    <p>Book four or more nights and get a 1$ discount!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -115,6 +119,7 @@ require 'calendar.php';
             <div class="form-container">
                 <form method="post" action="makeBooking.php">
                     <h3>Book your stay</h3>
+                    <p>(Please note that the room prices are per night. We do not charge for the checkout day and you can choose a redmarked day as checkout.)</p>
                     <label for="startdate">Enter the startdate of your stay</label>
                     <input type="date" name="startdate" min="2023-01-01" max="2023-01-31">
                     <label for="enddate">Enter your checkout day</label>
