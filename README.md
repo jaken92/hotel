@@ -8,7 +8,7 @@ Neat little hotel with very avarage facilities! I recommend for you my friend.
 
 # Instructions
 
-Start a php server with localhost from the map where the files are located. Change the links in the fetch-statements in the fetch.js file to be valid for the localhost you are running. Example https://petterjakobsson.se/features.php can be changed to http://localhost:3000/features.php.
+Start a php server with localhost from the map where the files are located. Change the links in the fetch-statements in the fetch.js file to be valid for the localhost you are running. Example https://petterjakobsson.se/features.php can be changed to http://localhost:3000/features.php. Same goes for the links in makeBooking.php line 122 and 127. Aswell as unsuccesful.html, line 25.
 
 Now fire up your webapp and browse in on http://localhost:YourPort/index.php to book your stay at this avarage hotel!
 
