@@ -29,4 +29,4 @@ Or just find the application online at https://petterjakobsson.se.
 10. Css-filerna - Kan vara bra att göra en :root med font och färger.
 11. - Side note, du har inte med din vendor på github.. vet inte om den bör läggas upp...
 
--   Punkt 7,8 och 9 åtgärdade efter codereview. /Petter
+-   Punkt 6,7 och 8 åtgärdade efter codereview. /Petter
