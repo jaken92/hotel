@@ -20,7 +20,6 @@ function codeCheck(string $transfercode, int $amount): bool
         ]
     ]);
 
-
     $rez = $response->getBody()->getContents();
 
     $rez = json_decode($rez);
@@ -35,8 +34,6 @@ function codeCheck(string $transfercode, int $amount): bool
     }
 };
 
-deposit("05e8b347-987f-45a3-9c05-2fc2ad706608");
-
 function deposit($transfercode)
 {
     $client = new Client;
@@ -47,10 +44,4 @@ function deposit($transfercode)
             'transferCode' => $transfercode
         ]
     ]);
-
-
-    $rez = $response->getBody()->getContents();
-    // header("Content-type:application/json");
-    // $rez = json_decode($rez);
-    // echo json_encode($rez);
 }

@@ -62,8 +62,8 @@ require 'calendar.php';
         </div>
     </div>
     <div id="basic" class="sections">
-        <h2 class="basic-id">Basic</h2>
-        <h3 class="basic-name">Beachview</h3>
+        <h2 class="basic-id"></h2>
+        <h3 class="basic-name"></h3>
         <div class="basic-content">
             <div class="calendar-container">
                 <div class="calendar">
@@ -80,8 +80,8 @@ require 'calendar.php';
         </p>
     </div>
     <div id="regular" class="sections">
-        <h2 class="regular-id">Basic</h2>
-        <h3 class="regular-name">Beachview</h3>
+        <h2 class="regular-id"></h2>
+        <h3 class="regular-name"></h3>
         <div class="regular-content">
             <div class="calendar-container">
                 <div class="calendar">
@@ -97,8 +97,8 @@ require 'calendar.php';
         <p>Oh? Sleeping outside is not for you? Dont worry! For just 2$ you get to spend the night in our one-of-a-kind Treehouse! Enjoy the view from above! For this option we reccomend that you select the feature "vaccination" as one of our guests recently got bitten by one of the monkeys that inhabits the tree. Dont worry though. If you dont like vaccinations, the "baseball-bat" feature is avalible here aswell. Better safe than sorry!</p>
     </div>
     <div id="luxury" class="sections">
-        <h2 class="lux-id">Basic</h2>
-        <h3 class="lux-name">Beachview</h3>
+        <h2 class="lux-id"></h2>
+        <h3 class="lux-name"></h3>
         <div class="luxury-content">
             <div class="calendar-container">
                 <div class="calendar">

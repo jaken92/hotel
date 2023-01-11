@@ -115,10 +115,7 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
 
             echo json_encode($yourBooking);
         } else {
-            // echo "booking unsuccesful";
-            // foreach ($result as $occupied) {
-            //     echo $occupied . "is already booked, choose another date please! ";
-            // }
+
             header("Location: https://petterjakobsson.se/unsuccesful.html");
         }
     } else {

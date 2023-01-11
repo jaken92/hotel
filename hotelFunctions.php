@@ -104,18 +104,14 @@ function featuresTotalCost(): int
 //function adding the chosen features in an array. For displaying as json upon succesful booking. 
 function insertFeatures($choosenFeatures): array
 {
-
     $features = getFeatures();
 
     foreach ($features as $feature) {
         if (isset($_POST[$feature['id']])) {
 
-
             $choosenFeatures[] = ["name" => $feature['name'], "cost" => $feature['cost']];
         }
     }
-
-    header("Content-type:application/json");
 
     return $choosenFeatures;
 }
