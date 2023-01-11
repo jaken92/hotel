@@ -1,4 +1,6 @@
 <?php
+
+//connecting to the db, saving all the data from bookings as bookingsX.
 require 'hotelFunctions.php';
 
 

@@ -1,6 +1,6 @@
 <?php
 
-//Page to fetch data via js. 
+//Page to fetch data via js. Used in fetch.js.
 declare(strict_types=1);
 
 require "hotelFunctions.php";

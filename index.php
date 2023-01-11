@@ -12,14 +12,14 @@ require 'calendar.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/calendar.css">
     <link rel="stylesheet" href="/CSS/styling.css">
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/CSS/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <title>The raccoon hotel</title>
+    <title>The Very Avarage Island Inn</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ require 'calendar.php';
                     <a href="#luxury" class="nav-link">Luxury</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#booking" class="nav-link">Make Booking</a>
+                    <a href="#booking" class="nav-link">Book</a>
                 </li>
             </ul>
             <div class="hamburger">

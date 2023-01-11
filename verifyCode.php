@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types=1);
-// Always require autoload when using packages
+//Some functions using guzzle. For verifying and depositing transfercodes.
+
 require(__DIR__ . '/vendor/autoload.php');
 header("Content-type:application/json");
 
 use GuzzleHttp\Client;
 
-// codeCheck("05e8b347-987f-45a3-9c05-2fc2ad706608", 1);
 
 function codeCheck(string $transfercode, int $amount): bool
 {
@@ -22,11 +22,9 @@ function codeCheck(string $transfercode, int $amount): bool
 
 
     $rez = $response->getBody()->getContents();
-    // header("Content-type:application/json");
+
     $rez = json_decode($rez);
-    // echo $rez->error;
-    // print_r($rez);
-    // echo json_encode($rez);
+
     if (property_exists($rez, 'transferCode') && property_exists($rez, 'amount') && property_exists($rez, 'fromAccount')) {
 
         return true;
@@ -56,16 +54,3 @@ function deposit($transfercode)
     // $rez = json_decode($rez);
     // echo json_encode($rez);
 }
-
-// $yourBooking[] = array(
-//     'island' => 'Mamona',
-//     'hotel' => 'Horale Hotel',
-//     'arrival_date' => '2023-01-02',
-//     'departure_date' => '2023-01-07',
-//     'total_cost' => '',
-//     'stars' => '',
-//     'features' => '',
-//     'additional_info' => ''
-
-
-// );

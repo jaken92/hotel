@@ -52,12 +52,8 @@ function isValidUuid(string $uuid): bool
     return true;
 }
 
-// $blast = ["bird", "aunt", "moose"];
 
-
-// $hej = roomTotalCost($blast, "regular");
-// echo $hej;
-
+//calculating the cost of room based on the amount of days in requested booking, and the costcolumn from "rooms" in db for the chosen room. 
 function roomTotalCost(array $requestedDays, string $roomtype): int
 {
     $dbh = connect('/bookings.db');
@@ -76,58 +72,9 @@ function roomTotalCost(array $requestedDays, string $roomtype): int
             return $cost;
         }
     }
-
-
-    // $amountOfDays = count($requestedDays);
-    // if ($roomtype == "basic") {
-    //     $cost = $amountOfDays * 1;
-    //     return $cost;
-    // } elseif ($roomtype == "regular") {
-    //     $cost = $amountOfDays * 2;
-    //     return $cost;
-    // } else {
-    //     $cost = $amountOfDays * 3;
-    //     return $cost;
-    // }
 }
 
-
-//function fetching feature data from db and checking if they are set. Adding the cost to fearutecost if set. 
-function featuresTotalCost(): int
-{
-    // $yourBooking[] = array(
-    //     'island' => 'Mamona',
-    //     'hotel' => 'Horale Hotel',
-    //     'arrival_date' => '2023-01-02',
-    //     'departure_date' => '2023-01-07',
-    //     'total_cost' => '',
-    //     'stars' => '',
-    //     'additional_info' => ''
-    // );
-
-    $dbh = connect('/bookings.db');
-    $statement = $dbh->query('SELECT * FROM features');
-
-    $features = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    $featurecost = 0;
-
-    foreach ($features as $feature) {
-        if (isset($_POST[$feature['id']])) {
-            $featurecost = $featurecost + $feature['cost'];
-
-
-            // $choosenFeatures[] = ["name" => $feature['name'], "cost" => $feature['cost']];
-        }
-    }
-    // $yourBooking[0] += ["features" => $choosenFeatures];
-    // print_r($choosenFeatures);
-    // print_r($yourBooking);
-    // header("Content-type:application/json");
-    // echo json_encode($yourBooking);
-    return $featurecost;
-}
-
+//simply getting the features table from the database - for the data to be used in functions. 
 function getFeatures()
 {
     $dbh = connect('/bookings.db');
@@ -137,18 +84,26 @@ function getFeatures()
     return $features;
 }
 
+//function checking if each feature is set. Adding the cost to fearutecost if set. 
+function featuresTotalCost(): int
+{
 
+    $features = getFeatures();
+
+    $featurecost = 0;
+
+    foreach ($features as $feature) {
+        if (isset($_POST[$feature['id']])) {
+            $featurecost = $featurecost + $feature['cost'];
+        }
+    }
+    return $featurecost;
+}
+
+
+//function adding the chosen features in an array. For displaying as json upon succesful booking. 
 function insertFeatures($choosenFeatures): array
 {
-    // $yourBooking[] = array(
-    //     'island' => 'Mamona',
-    //     'hotel' => 'Horale Hotel',
-    //     'arrival_date' => '2023-01-02',
-    //     'departure_date' => '2023-01-07',
-    //     'total_cost' => '',
-    //     'stars' => '',
-    //     'additional_info' => ''
-    // );
 
     $features = getFeatures();
 
@@ -160,10 +115,20 @@ function insertFeatures($choosenFeatures): array
         }
     }
 
-    // $yourBooking[0] += ["features" => $choosenFeatures];
-
     header("Content-type:application/json");
 
-    // return $yourBooking;
     return $choosenFeatures;
+}
+
+
+//discount check. If four or more days are booked, give 1$ discount. 
+function checkForDiscount($requestedDays): int
+{
+    if (count($requestedDays) >= 4) {
+        $discount = 1;
+        return $discount;
+    } else {
+        $discount = 0;
+        return $discount;
+    }
 }

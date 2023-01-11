@@ -1,0 +1,45 @@
+body {
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: bisque;
+  display: flex;
+  justify-content: center;
+}
+
+.msg-box {
+  padding: 8rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+h3 {
+  align-self: center;
+}
+
+p {
+  align-self: center;
+}
+
+.msg-box li {
+  text-align: left;
+  align-items: left;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  margin-top: 3rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 2px solid black;
+  cursor: pointer;
+  align-self: center;
+  text-align: center;
+}

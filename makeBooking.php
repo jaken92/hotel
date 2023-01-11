@@ -3,19 +3,16 @@
 declare(strict_types=1);
 require "calendar.php";
 require "verifyCode.php";
-// require "arrays.php";
 
 
-
+//checking if all the essential form data is set. 
 if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST['room'])) {
-    //storing user input from post.
+    //storing and washing user input from post.
     $startdate = htmlspecialchars($_POST['startdate']);
     $enddate = htmlspecialchars($_POST['enddate']);
     $transfercode = htmlspecialchars($_POST['transfercode']);
     $room = htmlspecialchars($_POST['room']);
 
-    $choosenFeatures = array();
-    $choosenFeatures = insertFeatures($choosenFeatures);
 
     //setting the features value to 0. 
     $feature_one = 0;
@@ -32,28 +29,31 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
         $feature_three = $_POST['feature_three'];
     }
 
-    //declaring array which we are going to fill with the requested days.  
+    //declaring array to be filled with the requested days.  
     $bookingRequest = array();
 
-
-    //covering the dates between the requested booking, minus the checkoutday. https://stackoverflow.com/questions/4312439/php-return-all-dates-between-two-dates-in-an-array
+    //Putting all dates between the $startdate and $enddate, minus the checkoutday, into a datePeriod. https://stackoverflow.com/questions/4312439/php-return-all-dates-between-two-dates-in-an-array
     $period = new DatePeriod(
         new DateTime($startdate),
         new DateInterval('P1D'),
         new DateTime($enddate)
     );
 
-    //storing all the dates in the bookingRequest array
+    //storing all the dates from the dateperiod in the bookingRequest array.
     foreach ($period as $key => $value) {
         $bookingRequest[] = $value->format('Y-m-d');
     }
 
-    //calculating cost for room+features. Functions found in hotelFunctions.php.
+    //calculating cost for room. Applying discount if conditions are met.
     $roomcost = roomTotalCost($bookingRequest, $room);
+    //calculating cost for features.
     $featurecost = featuresTotalCost();
-    $totalcost = $roomcost + $featurecost;
+    //checking if entitled to discount.
+    $discount = checkForDiscount($bookingRequest);
+    // calculating totalcost. 
+    $totalcost = $roomcost + $featurecost - $discount;
 
-    //veryfing transfercode. If valid continues with the booking process. Functions found in hotelsFunction.php and in verifyCode.php.
+    //veryfing transfercode. If valid continues with the booking process. Function codeCheck() found in verifyCode.php.
     if (isValidUuid($transfercode) && codeCheck($transfercode, $totalcost)) {
 
         //fetching the booked days with the the roomtype parameter. 
@@ -83,7 +83,6 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
 
         //if no similar values, executes sql query for booking.
         if (empty($result)) {
-            // echo "booking succesful";
             $statement = $dbh->prepare("INSERT INTO bookings ('start_date', 'end_date', 'room', 'feature_one', 'feature_two', 'feature_three') VALUES (:start_date, :end_date, :room, :feature_one, :feature_two, :feature_three)");
 
             $statement->bindParam(':start_date', $startdate, PDO::PARAM_STR);
@@ -95,9 +94,13 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
 
             $statement->execute();
 
+            // insertFeatures() puts the choosen features into an array to be displayed in the json response. 
+            $choosenFeatures = array();
+            $choosenFeatures = insertFeatures($choosenFeatures);
+
             $yourBooking = [
-                'island' => 'Mamona',
-                'hotel' => 'Horale Hotel',
+                'island' => 'Dirt Cheap Island',
+                'hotel' => 'The Very Avarage Island Inn',
                 'arrival_date' => $startdate,
                 'departure_date' => $enddate,
                 'total_cost' => $totalcost,
@@ -106,19 +109,21 @@ if (isset($_POST['startdate'], $_POST['enddate'], $_POST['transfercode'], $_POST
                 'additional_info' => 'Thank you for staying at this very avarage hotel.'
             ];
 
-
+            // deposits payment to my account. function found in verifyCode.php
             deposit($transfercode);
 
 
             echo json_encode($yourBooking);
         } else {
-            echo "booking unsuccesful";
-            foreach ($result as $occupied) {
-                echo $occupied . "is already booked, choose another date please! ";
-            }
+            // echo "booking unsuccesful";
+            // foreach ($result as $occupied) {
+            //     echo $occupied . "is already booked, choose another date please! ";
+            // }
+            header("Location: http://localhost:3000/unsuccesful.html");
         }
     } else {
-        //cancel booking process, put error message. 
-        echo "Booking didnt go through. ";
+
+
+        header("Location: http://localhost:3000/unsuccesful.html");
     }
 }
