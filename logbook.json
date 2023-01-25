@@ -1,6 +1,67 @@
 {
   "vacation": [
     {
+      "island": "The Yellow Duck Island",
+      "hotel": "The Yellow Duck",
+      "arrival_date": "2023-01-03",
+      "departure_date": "2023-01-05",
+      "total_cost": "6",
+      "stars": "1",
+      "features": [],
+      "addtional_info": "Thank you for staying at the Yellow Duck!"
+    },
+
+    {
+      "island": "BO-BO-ISLAND",
+      "hotel": "BO-BO HOTEL",
+      "name": "Jonas",
+      "arrival_date": "2023-01-01",
+      "departure_date": "2023-01-03",
+      "total_cost": 6,
+      "stars": "1",
+      "features": [],
+      "additional_info": "See You Soon!"
+    },
+    {
+      "island": "Point Nemo",
+      "hotel": "The Good Morrow",
+      "arrival_date": "2023-01-12",
+      "departure_date": "2023-01-14",
+      "total_cost": "9",
+      "stars": 5,
+      "features": [{ "name": "Poetry Waking", "cost": 3 }],
+      "additional_info": {
+        "message": "Very good. Enjoy your stay. But not too much, you might never leave."
+      }
+    },
+    {
+      "island": "Pelagon",
+      "hotel": "Moster Dagnys",
+      "arrival_date": "2023-01-26",
+      "departure_date": "2023-01-31",
+      "total_cost": 10,
+      "stars": "1",
+      "features": [],
+      "addtional_info": "Thank you for making the right choice by staying at Moster Dagnys. We hope you will enjoy your stay."
+    },
+    {
+      "island": "Nomi island",
+      "hotel": "Nomis Hotel",
+      "arrival_date": "2023-01-27",
+      "departure_date": "2023-01-31",
+      "total_cost": 17,
+      "stars": "5",
+      "features": [
+        {
+          "name": "sauna",
+          "cost": 2
+        }
+      ],
+      "addtional_info": {
+        "greeting": "Thanks for choosing Nomis!"
+      }
+    },
+    {
       "island": "Anthrax island",
       "hotel": "Budget hostel",
       "arrival_date": "2023-01-01",
@@ -25,6 +86,5 @@
         }
       ]
     }
-    
   ]
 }
