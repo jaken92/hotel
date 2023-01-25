@@ -41,6 +41,9 @@ require 'calendar.php';
                     <li class="nav-item">
                          <a href="#booking" class="nav-link">Book</a>
                     </li>
+                    <li class="nav-item">
+                         <a href="#log" class="nav-link">Log</a>
+                    </li>
                </ul>
                <div class="hamburger">
                     <span class="bar"></span>
@@ -143,7 +146,7 @@ require 'calendar.php';
      <ul class="features">
 
      </ul>
-
+     <div id="log"></div>
      <h2>LOG BOOK</h2>
 
      <script src="script.js"></script>
